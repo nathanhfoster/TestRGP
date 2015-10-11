@@ -156,21 +156,21 @@ Creature dialogue_newchar()
 		"Choose your class",
 		{ "Fighter", "Rogue" }).activate();
 
-	switch (result)
+	switch (result) // Creature(Name, Health, Armor Class, Attack Mod, Damage Mod, Str, End, Dex, Level, Type)
 	{
 		// Fighter class favours health and strength
 	case 1:
-		return Creature(name, 35, 20, 10, 5, 10.0, 1, "Fighter");
+		return Creature(name, 35, 16, 1, 1, 16, 10, 12, 1, "Fighter");
 		break;
 
 		// Rogue class favours dexterity and hit rate
 	case 2:
-		return Creature(name, 30, 5, 10, 20, 15.0, 1, "Fighter");
+		return Creature(name, 30, 14, 1, 1, 14, 10, 20, 1, "Rogue");
 		break;
 
 		// Default case that should never happen, but it's good to be safe
 	default:
-		return Creature(name, 30, 10, 10, 10, 10.0, 1, "Adventurer");
+		return Creature(name, 30, 12, 1, 1, 13, 11, 11, 1, "Adventurer");
 		break;
 	}
 }
@@ -290,6 +290,13 @@ void dialogue_menu(Creature& player)
 		std::cout << std::endl;
 
 		std::cout << "HP: " << player.health << " / " << player.maxHealth << std::endl;
+		std::cout << "Armor Class: " << player.armorClass << std::endl;
+		if (player.equippedWeapon != nullptr)
+		std::cout << "Weapon: " << player.equippedWeapon->name
+			<< " (" << player.equippedWeapon->damage[0] 
+			<< "d" << player.equippedWeapon->damage[1] << ")" << std::endl;
+		std::cout << "Attack Mod: " << player.attackMod << std::endl;
+		std::cout << "Damage Mod: " << player.DamageMod << std::endl;
 		std::cout << "Str: " << player.str << std::endl;
 		std::cout << "End: " << player.end << std::endl;
 		std::cout << "Dex: " << player.dex << std::endl;

@@ -4,7 +4,8 @@
 #include<random>
 using uint32 = unsigned int;
 
-class Random {
+class Random 
+{
 public:
 	Random() = default;
 	Random(std::mt19937::result_type seed) : eng(seed) {}

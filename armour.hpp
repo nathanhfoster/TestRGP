@@ -33,4 +33,4 @@ public:
 	}
 };
 
-#endif /* ARMOUR_HPP *
+#endif /* ARMOUR_HPP */

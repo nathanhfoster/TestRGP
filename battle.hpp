@@ -1,6 +1,7 @@
 #ifndef BATTLE_HPP
 #define BATTLE_HPP
 
+#include "random.hpp"
 #include "dialogue.hpp"
 #include "creature.hpp"
 #include "armour.hpp"
@@ -11,7 +12,8 @@
 class Battle
 {
 public:
-
+	//Random number generator
+	Random rand;
 	// Dialogue used to ask the player battle choices
 	Dialogue dialogue;
 
@@ -46,19 +48,26 @@ public:
 		int damage = 0;
 
 		// Cumulative modifier to hitRate
-		double hitRate = a->hitRate;
+		int attackMod = a->attackMod; 
 
 		// If a has equipped a weapon, then add the weapon damage on
-		// to the current damage and add the hit rate of the weapon on to
-		// the current hit rate
+		// to the current damage and add the attack modifier 
+		// of the weapon on to the current attack modifier
 		if (a->equippedWeapon != nullptr)
 		{
-			damage += a->equippedWeapon->damage;
-			hitRate += a->equippedWeapon->hitRate;
+		// damage is calculated by rolling the perspective amount of dice
+		// and by determining the amound of sides.
+			for (int i = 0; i < a->equippedWeapon->damage[0]; i++)
+			{
+				damage += (rand.DrawNumber(1, a->equippedWeapon->damage[1]) + a->DamageMod + ((a->str - 10)/2));
+			}
+
+			attackMod += a->equippedWeapon->attackMod;
 		}
 
 		// Increase the damage by half the attacker's strength
-		damage += a->str / 2;
+		//damage += a->str / 2;
+		damage += (rand.DrawNumber(1, 4) + a->DamageMod); // Default damage is rolling a 1d4 (One four-sided die)
 
 		// Damage that b will block
 		int defense = 0;
@@ -81,7 +90,7 @@ public:
 		// dexterity from it. Instead of halving it to normalise it into
 		// a percentage, we just double the range of randomly generated
 		// values
-		if (rand() % 201 <= 170 + hitRate - b->dex)
+		if ((rand.DrawNumber(1, 20) + attackMod) >= (b->armorClass + (b->dex - 10) / 2))
 		{
 			// The attack hit, so subtract the damage
 			std::cout << b->name << " takes " << damage << " damage!\n";
@@ -92,7 +101,6 @@ public:
 			// The attack missed
 			std::cout << a->name << " missed!\n";
 		}
-
 		return;
 	}
 
@@ -147,7 +155,7 @@ public:
 	{
 		// The creature with the highest dexterity attacks first, with
 		// preference to the player
-		if (creatures[0]->dex >= creatures[1]->dex)
+		if ((rand.DrawNumber(1,20) + creatures[0]->dex) >= (rand.DrawNumber(1, 20) + creatures[1]->dex))
 		{
 			// Run each turn and check if the foe is dead at the end of
 			// each

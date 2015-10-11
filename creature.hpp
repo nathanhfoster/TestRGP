@@ -19,10 +19,12 @@ public:
 	// Creature stats. Reasonable values are in parentheses
 	int health;		// Current hit points (10-1000+)
 	int maxHealth;	// Maximum hit points (10-1000+)
+	int armorClass;
+	int attackMod;
+	int DamageMod;
 	int str;		// Strength. Determines damage in battle (1-100)
 	int end;		// Endurance. Determines maximum health (1-100)
 	int dex;		// Dexterity. Determines speed in battle (1-100)
-	double hitRate;	// Modifier to hit chance. (1-150)
 
 	// Current level of the creature. Determines the amount of experience
 	// that it gives to the victor when defeated (see Battle class for more)
@@ -45,16 +47,18 @@ public:
 	// Armour currently equipped into each slot
 	Armour* equippedArmour[Armour::Slot::N];
 
-	Creature(std::string name, int health, int str, int end, int dex, double hitRate,
-		unsigned int level = 1, std::string className = "")
+	Creature(std::string name, int health, int armorClass, int attackMod, int DamageMod, 
+		int str, int end, int dex, unsigned int level = 1, std::string className = "")
 	{
 		this->name = name;
 		this->health = health;
 		this->maxHealth = health;
+		this->armorClass = armorClass;
+		this->attackMod = attackMod;
+		this->DamageMod = DamageMod;
 		this->str = str;
 		this->end = end;
 		this->dex = dex;
-		this->hitRate = hitRate;
 		this->className = className;
 		this->equippedArmour[Armour::Slot::HEAD] = nullptr;
 		this->equippedArmour[Armour::Slot::TORSO] = nullptr;
@@ -118,6 +122,9 @@ public:
 			// based on the boosted instead of the original value, for
 			// example
 			unsigned int healthBoost = 0;
+			unsigned int armorClassBoost = 0;
+			unsigned int attackModBoost = 0;
+			unsigned int DamageModBoost = 0;
 			unsigned int strBoost = 0;
 			unsigned int endBoost = 0;
 			unsigned int dexBoost = 0;
@@ -155,6 +162,9 @@ public:
 
 			// Adjust all of the variables accordingly
 			this->maxHealth += healthBoost;
+			this->armorClass += armorClassBoost;
+			this->attackMod += attackModBoost;
+			this->DamageMod += DamageModBoost;
 			this->str += strBoost;
 			this->end += endBoost;
 			this->dex += dexBoost;
