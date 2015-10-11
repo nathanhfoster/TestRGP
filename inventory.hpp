@@ -195,7 +195,8 @@ public:
 		for (auto it : this->weapons)
 		{
 			if (label) std::cout << i++ << ": ";
-			std::cout << it.first->name << " (" << it.second << ") - ";
+			std::cout << it.first->name << " (" << it.second << ") ";
+			std::cout << "+DMG: (" << it.first->damage[0] << "d" << it.first->damage[1] << ")" << std::endl;
 			std::cout << it.first->description << std::endl;
 		}
 
@@ -212,6 +213,7 @@ public:
 			if (label) std::cout << i++ << ": ";
 			std::cout << it.first->name << " (" << it.second << ") - ";
 			std::cout << it.first->description << std::endl;
+			std::cout << "+HP: " << it.first->healthBoost << std::endl;
 		}
 
 		return this->armour.size();

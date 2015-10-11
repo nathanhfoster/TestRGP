@@ -19,12 +19,14 @@ public:
 
 	// See Battle class for exact formula, values from 1-50 are reasonable
 	int defense;
+	int healthBoost;
 
 	// Usual constructor
-	Armour(std::string name, std::string description, int defense, Armour::Slot slot) :
+	Armour(std::string name, std::string description, int defense, int healthBoost, Armour::Slot slot) :
 		Item(name, description)
 	{
 		this->defense = defense;
+		this->healthBoost = healthBoost;
 		this->slot = slot;
 	}
 

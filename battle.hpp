@@ -67,7 +67,7 @@ public:
 
 		// Increase the damage by half the attacker's strength
 		//damage += a->str / 2;
-		damage += (rand.DrawNumber(1, 4) + a->DamageMod); // Default damage is rolling a 1d4 (One four-sided die)
+		damage += (rand.DrawNumber(1, 4) + a->DamageMod + (a->str-10)/2); // Default damage is rolling a 1d4 (One four-sided die)
 
 		// Damage that b will block
 		int defense = 0;

@@ -78,7 +78,7 @@ int main(void)
 			for (int i = currentArea->creatures.size() - 1; i >= 0; --i)
 			{
 				Battle(&player, currentArea->creatures[i]).run();
-				// Remove the creature from the area. This is fine to do
+				// the creature from the area. This is fine to do
 				// because if the player wins the creature will not respawn,
 				// and if the creature wins the player isn't around to see it
 				// (This does break the 'non-mutable' feature of the atlases,
@@ -245,6 +245,10 @@ void dialogue_menu(Creature& player)
 						{
 							// Equip the armour if it is found
 							player.equipArmour(it.first);
+							// player.unEquipArmour[Armour::Slot::HEAD] = nullptr;
+							//player.unEquipArmour(it.first);
+							// player.equippedArmour[Armour::Slot::HEAD] = nullptr;
+
 							break;
 						}
 					}

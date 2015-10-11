@@ -93,8 +93,17 @@ public:
 	void equipArmour(Armour* armour)
 	{
 		this->equippedArmour[(int)armour->slot] = armour;
+		this->health += armour->healthBoost;
+		this->maxHealth += armour->healthBoost;
 
 		return;
+	}
+	// Remove armour out of its correct slot.
+	void unEquipArmour(Armour* armour)
+	{
+		this->equippedArmour[(int)armour->slot] = nullptr;
+		this->health -= armour->healthBoost;
+		this->maxHealth -= armour->healthBoost;
 	}
 
 	// Calculates the experience required to reach a certain level,
