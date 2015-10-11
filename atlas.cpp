@@ -2,7 +2,7 @@
 void buildatlas_creature(std::vector<Creature>& atlas)
 {
 	// Fill the atlas
-	// Creature(Name, Health, Armor Class, Attack Mod, Damage Mod, Str, End, Dex, Level, Type)
+	// Creature(Name, Health, Armour Class, Attack Mod, Damage Mod, Str, End, Dex, Level, Type)
 	atlas.push_back(Creature("Rat", 25, 13, 1, 1, 8, 8, 12, 1));
 	return;
 }

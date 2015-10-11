@@ -90,7 +90,7 @@ public:
 		// dexterity from it. Instead of halving it to normalise it into
 		// a percentage, we just double the range of randomly generated
 		// values
-		if ((rand.DrawNumber(1, 20) + attackMod) >= (b->armorClass + (b->dex - 10) / 2))
+		if ((rand.DrawNumber(1, 20) + attackMod) >= (b->armourClass + (b->dex - 10) / 2))
 		{
 			// The attack hit, so subtract the damage
 			std::cout << b->name << " takes " << damage << " damage!\n";

@@ -19,7 +19,7 @@ public:
 	// Creature stats. Reasonable values are in parentheses
 	int health;		// Current hit points (10-1000+)
 	int maxHealth;	// Maximum hit points (10-1000+)
-	int armorClass;
+	int armourClass;
 	int attackMod;
 	int DamageMod;
 	int str;		// Strength. Determines damage in battle (1-100)
@@ -47,13 +47,13 @@ public:
 	// Armour currently equipped into each slot
 	Armour* equippedArmour[Armour::Slot::N];
 
-	Creature(std::string name, int health, int armorClass, int attackMod, int DamageMod, 
+	Creature(std::string name, int health, int armourClass, int attackMod, int DamageMod, 
 		int str, int end, int dex, unsigned int level = 1, std::string className = "")
 	{
 		this->name = name;
 		this->health = health;
 		this->maxHealth = health;
-		this->armorClass = armorClass;
+		this->armourClass = armourClass;
 		this->attackMod = attackMod;
 		this->DamageMod = DamageMod;
 		this->str = str;
@@ -93,7 +93,6 @@ public:
 	void equipArmour(Armour* armour)
 	{
 		this->equippedArmour[(int)armour->slot] = armour;
-		this->armourClass += armour->armourClassBoost;
 		this->health += armour->healthBoost;
 		this->maxHealth += armour->healthBoost;
 
@@ -103,9 +102,10 @@ public:
 	void unEquipArmour(Armour* armour)
 	{
 		this->equippedArmour[(int)armour->slot] = nullptr;
-		this->armourClass -= armour->armourClassBoost;
 		this->health -= armour->healthBoost;
 		this->maxHealth -= armour->healthBoost;
+
+		return;
 	}
 
 	// Calculates the experience required to reach a certain level,
@@ -133,7 +133,7 @@ public:
 			// based on the boosted instead of the original value, for
 			// example
 			unsigned int healthBoost = 0;
-			unsigned int armorClassBoost = 0;
+			unsigned int armourClassBoost = 0;
 			unsigned int attackModBoost = 0;
 			unsigned int DamageModBoost = 0;
 			unsigned int strBoost = 0;
@@ -173,7 +173,7 @@ public:
 
 			// Adjust all of the variables accordingly
 			this->maxHealth += healthBoost;
-			this->armorClass += armorClassBoost;
+			this->armourClass += armourClassBoost;
 			this->attackMod += attackModBoost;
 			this->DamageMod += DamageModBoost;
 			this->str += strBoost;

@@ -156,7 +156,7 @@ Creature dialogue_newchar()
 		"Choose your class",
 		{ "Fighter", "Rogue" }).activate();
 
-	switch (result) // Creature(Name, Health, Armor Class, Attack Mod, Damage Mod, Str, End, Dex, Level, Type)
+	switch (result) // Creature(Name, Health, Armour Class, Attack Mod, Damage Mod, Str, End, Dex, Level, Type)
 	{
 		// Fighter class favours health and strength
 	case 1:
@@ -294,7 +294,7 @@ void dialogue_menu(Creature& player)
 		std::cout << std::endl;
 
 		std::cout << "HP: " << player.health << " / " << player.maxHealth << std::endl;
-		std::cout << "Armor Class: " << player.armorClass << std::endl;
+		std::cout << "Armour Class: " << player.armourClass << std::endl;
 		if (player.equippedWeapon != nullptr)
 		std::cout << "Weapon: " << player.equippedWeapon->name
 			<< " (" << player.equippedWeapon->damage[0] 
