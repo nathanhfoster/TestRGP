@@ -28,8 +28,8 @@ void buildatlas_weapon(std::vector<Weapon>& atlas)
 
 void buildatlas_armour(std::vector<Armour>& atlas)
 {
-	// Armour(Name, Description, Defense, Health Boost, Slot)
-	atlas.push_back(Armour("Leather Cuirass", "Torso armour made of tanned hide", 4, 5, Armour::Slot::TORSO));
+	// Armour(Name, Description, Defense, Armour Class Boost, Health Boost, Slot)
+	atlas.push_back(Armour("Leather Cuirass", "Torso armour made of tanned hide", 4, 1, 5, Armour::Slot::TORSO));
 
 	return;
 }
