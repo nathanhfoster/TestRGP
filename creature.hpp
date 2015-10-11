@@ -93,6 +93,7 @@ public:
 	void equipArmour(Armour* armour)
 	{
 		this->equippedArmour[(int)armour->slot] = armour;
+		this->armourClass += armour->armourClassBoost;
 		this->health += armour->healthBoost;
 		this->maxHealth += armour->healthBoost;
 
@@ -102,6 +103,7 @@ public:
 	void unEquipArmour(Armour* armour)
 	{
 		this->equippedArmour[(int)armour->slot] = nullptr;
+		this->armourClass -= armour->armourClassBoost;
 		this->health -= armour->healthBoost;
 		this->maxHealth -= armour->healthBoost;
 	}
