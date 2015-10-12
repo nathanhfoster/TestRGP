@@ -84,7 +84,16 @@ public:
 	void equipWeapon(Weapon* weapon)
 	{
 		this->equippedWeapon = weapon;
-
+		this->attackMod += weapon->attackMod;
+		
+		return;
+	}
+	
+	void unEquipWeapon(Weapon* weapon)
+	{
+		this->equippedWeapon = nullptr;
+		this->attackMod -= weapon->attackMod;
+		
 		return;
 	}
 
