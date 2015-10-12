@@ -56,7 +56,9 @@ public:
 		if (a->equippedWeapon != nullptr)
 		{
 		// damage is calculated by rolling the perspective amount of dice
-		// and by determining the amound of sides.
+		// and by determining the amound of sides the dice you are rolling.
+		// damage[0] = amount of times you roll the dice. 
+		// damage[1] = the amount of sides a die has.
 			for (int i = 0; i < a->equippedWeapon->damage[0]; i++)
 			{
 				damage += (rand.DrawNumber(1, a->equippedWeapon->damage[1]) + a->DamageMod + ((a->str - 10)/2));
