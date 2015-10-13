@@ -30,6 +30,8 @@ void buildatlas_armour(std::vector<Armour>& atlas)
 {
 	// Armour(Name, Description, Defense, Armour Class Boost, Health Boost, Slot)
 	atlas.push_back(Armour("Leather Cuirass", "Torso armour made of tanned hide", 4, 1, 5, Armour::Slot::TORSO));
+	atlas.push_back(Armour("Steel Cuirass", "Torso armour made of steel", 4, 1, 10, Armour::Slot::TORSO));
+	atlas.push_back(Armour("Leather Helmet", "Head armour made of tanned hide", 4, 1, 1, Armour::Slot::HEAD));
 
 	return;
 }
@@ -48,10 +50,13 @@ void buildatlas_area(std::vector<Area>& atlas,
 
 	},
 	{
-		std::make_pair(&weapons[0], 1)	// Pair of weapon and quantity
+		std::make_pair(&weapons[0], 1),	// Pair of weapon and quantity
+		std::make_pair(&weapons[1], 1)
 	},
+
 	{
-		std::make_pair(&armour[0], 1)	// Pair of armour and quantity
+		std::make_pair(&armour[0], 1),
+		std::make_pair(&armour[1], 1)// Pair of armour and quantity
 	}),
 	{									// Creatures
 	}));

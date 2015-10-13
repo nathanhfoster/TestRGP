@@ -83,36 +83,36 @@ public:
 	// but handy if dual wielding is ever added, or shields etc
 	void equipWeapon(Weapon* weapon)
 	{
+		// If weapon is already wielded 
+		// unequipped it and remove it's modifiers
+		if (this->equippedWeapon != nullptr)
+		{
+			this->attackMod -= equippedWeapon->attackMod;
+			this->equippedWeapon = nullptr;
+		}
+
 		this->equippedWeapon = weapon;
 		this->attackMod += weapon->attackMod;
 		
 		return;
-	}
-	
-	void unEquipWeapon(Weapon* weapon)
-	{
-		this->equippedWeapon = nullptr;
-		this->attackMod -= weapon->attackMod;
-		
-		return;
-	}
+	}	
 
 	// Equip the armour into it's correct slot. A slightly more useful
 	// function!
 	void equipArmour(Armour* armour)
 	{
+		// If already wearing armor 
+		// unequipped it and remove it's modifiers.
+		if (this->equippedArmour[(int)armour->slot] != nullptr)
+		{
+			this->health -= equippedArmour[(int)armour->slot]->healthBoost;
+			this->maxHealth -= equippedArmour[(int)armour->slot]->healthBoost;
+			this->equippedArmour[(int)armour->slot] = nullptr;
+		}
+
 		this->equippedArmour[(int)armour->slot] = armour;
 		this->health += armour->healthBoost;
 		this->maxHealth += armour->healthBoost;
-
-		return;
-	}
-	// Remove armour out of its correct slot.
-	void unEquipArmour(Armour* armour)
-	{
-		this->equippedArmour[(int)armour->slot] = nullptr;
-		this->health -= armour->healthBoost;
-		this->maxHealth -= armour->healthBoost;
 
 		return;
 	}

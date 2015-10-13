@@ -245,10 +245,6 @@ void dialogue_menu(Creature& player)
 						{
 							// Equip the armour if it is found
 							player.equipArmour(it.first);
-							// player.unEquipArmour[Armour::Slot::HEAD] = nullptr;
-							//player.unEquipArmour(it.first);
-							// player.equippedArmour[Armour::Slot::HEAD] = nullptr;
-
 							break;
 						}
 					}
