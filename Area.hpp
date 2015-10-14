@@ -1,9 +1,9 @@
 #ifndef AREA_HPP
 #define AREA_HPP
 
-#include "inventory.hpp"
-#include "creature.hpp"
-#include "dialogue.hpp"
+#include "Inventory.hpp"
+#include "Creature.hpp"
+#include "Dialogue.hpp"
 
 #include <vector>
 
