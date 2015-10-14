@@ -1,7 +1,7 @@
 #ifndef ARMOUR_HPP
 #define ARMOUR_HPP
 
-#include "item.hpp"
+#include "Item.hpp"
 
 #include <string>
 
