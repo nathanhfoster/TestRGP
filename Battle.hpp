@@ -1,11 +1,11 @@
 #ifndef BATTLE_HPP
 #define BATTLE_HPP
 
-#include "random.hpp"
-#include "dialogue.hpp"
-#include "creature.hpp"
-#include "armour.hpp"
-#include "weapon.hpp"
+#include "Random.hpp"
+#include "Dialogue.hpp"
+#include "Creature.hpp"
+#include "Armour.hpp"
+#include "Weapon.hpp"
 
 #include <iostream>
 
