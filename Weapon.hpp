@@ -1,7 +1,7 @@
 #ifndef WEAPON_HPP
 #define WEAPON_HPP
 
-#include "item.hpp"
+#include "Item.hpp"
 
 #include <string>
 
