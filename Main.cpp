@@ -6,15 +6,15 @@
 #include <cstdlib>
 #include <ctime>
 
-#include "atlas.hpp"
-#include "item.hpp"
-#include "weapon.hpp"
-#include "armour.hpp"
-#include "inventory.hpp"
-#include "creature.hpp"
-#include "dialogue.hpp"
-#include "area.hpp"
-#include "battle.hpp"
+#include "Atlas.hpp"
+#include "Item.hpp"
+#include "Weapon.hpp"
+#include "Armour.hpp"
+#include "Inventory.hpp"
+#include "Creature.hpp"
+#include "Dialogue.hpp"
+#include "Area.hpp"
+#include "Battle.hpp"
 // New character menu
 Creature dialogue_newchar();
 
