@@ -1,9 +1,9 @@
 #ifndef INVENTORY_HPP
 #define INVENTORY_HPP
 
-#include "item.hpp"
-#include "weapon.hpp"
-#include "armour.hpp"
+#include "Item.hpp"
+#include "Weapon.hpp"
+#include "Armour.hpp"
 
 #include <list>
 #include <utility>
