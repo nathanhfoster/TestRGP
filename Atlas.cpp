@@ -1,4 +1,4 @@
-#include "atlas.hpp"
+#include "Atlas.hpp"
 void buildatlas_creature(std::vector<Creature>& atlas)
 {
 	// Fill the atlas
