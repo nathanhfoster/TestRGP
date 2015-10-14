@@ -1,9 +1,9 @@
 #ifndef CREATURE_HPP
 #define CREATURE_HPP
 
-#include "inventory.hpp"
-#include "weapon.hpp"
-#include "armour.hpp"
+#include "Inventory.hpp"
+#include "Weapon.hpp"
+#include "Armour.hpp"
 
 #include <string>
 
