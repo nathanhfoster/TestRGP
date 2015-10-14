@@ -3,11 +3,11 @@
 
 #include <vector>
 
-#include "creature.hpp"
-#include "item.hpp"
-#include "weapon.hpp"
-#include "armour.hpp"
-#include "area.hpp"
+#include "Creature.hpp"
+#include "Item.hpp"
+#include "Weapon.hpp"
+#include "Armour.hpp"
+#include "Area.hpp"
 
 // Atlas building functions. Atlases contain vectors of game data that
 // is not modified in gameplay, so the base versions of creatures, items
